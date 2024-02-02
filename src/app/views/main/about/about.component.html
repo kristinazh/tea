@@ -1,0 +1,37 @@
+<div class="about content">
+
+  <div id="carouselExample" class="carousel slide p-5">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <a href="../../../../assets/images/Баннер1.png" class="product-image">
+          <img src="../../../../assets/images/Баннер1.png" class="d-block w-100" alt="...">
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container about-answers text-center my-5">
+    <h1 class="my-5">Ответы на часто задаваемые вопросы</h1>
+
+    <div ngbAccordionItem *ngFor="let question of questions" class="m-2" >
+    <ngb-accordion ngbAccordion>
+        <ngb-panel>
+            <ng-template ngbPanelTitle ngbAccordionHeader type="info">
+                {{question.question}}
+          </ng-template >
+          <ng-template ngbPanelContent>
+            {{question.answer}}
+          </ng-template>
+        </ngb-panel>
+    </ngb-accordion>
+  </div>
+
+  </div>
+
+
+</div>
+
+
+
+

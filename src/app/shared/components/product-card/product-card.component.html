@@ -1,0 +1,16 @@
+<div class="product-card-section card col m-2">
+  <a href="{{product.image}}" class="product-image">
+    <img src="{{product.image}}" class="card-img-top" alt="">
+  </a>
+  <div class="card-body">
+    <h5 class="card-title">{{product.title}}</h5>
+    <h6 class="card-title">{{product.price | currency:'RUB ':'symbol':'1.2-2'}}</h6>
+    <p class="card-text">{{product.description | compressText}}</p>
+    <div class="d-flex flex-column m-2">
+      <a [routerLink]="['/products', product.id]" class="btn btn-primary hvr-bounce-in">Подробнее</a>
+      <a routerLink="/order" [queryParams]="{product: product.title}" class="btn btn-primary hvr-bounce-in mt-2">Купить</a>
+    </div>
+
+   </div>
+</div>
+

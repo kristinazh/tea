@@ -1,0 +1,17 @@
+<div class="container products-element text-center justify-content-center">
+  <h1 class="p-5">Наши чайные коллекции</h1>
+  <div class="row row-cols-auto justify-content-center">
+    <product-card *ngFor="let product of products;" [product]="product"></product-card>
+  </div>
+
+  <div *ngIf="loading" class="loader-bg">
+
+    <div class="d-flex justify-content-center">
+      <div class="spinner-border text-primary p-5" role="status">
+      </div>
+    </div>
+  </div>
+
+
+</div>
+

@@ -1,0 +1,20 @@
+.about-answers {
+  max-width: 856px
+}
+
+.accordion-item {
+  border: none;
+}
+.rounded {
+  border-radius: 10px !important;
+}
+.accordion-button::after {
+  background-image: url("../../../../assets/images/arrow.png");
+  transform: rotate(180deg);
+}
+.accordion-button:not(.collapsed)::after {
+  background-image: url("../../../../assets/images/arrow.png");
+  transform: rotate(0deg);
+}
+
+

@@ -1,0 +1,18 @@
+<div class="content product container container-fluid">
+  <h1 class="product__title text-center mt-5">{{product.title}}</h1>
+  <div class="product__main-section">
+    <div class="product-item-image-container">
+      <img src="{{product.image}}" alt="tea-{{product.id}}" class="product-item-image">
+    </div>
+    <div class="m-5">
+      <div class="fs-6">{{product.description}}</div>
+      <div class="card-title m-2 text-center">{{product.price | currency:'RUB ':'symbol':'1.2-2'}}</div>
+      <div class="text-center">
+        <a routerLink="/order"
+           [queryParams]="{product: product.title}"
+           class="btn btn-primary hvr-bounce-in px-5"
+        >Купить</a>
+      </div>
+    </div>
+  </div>
+</div>

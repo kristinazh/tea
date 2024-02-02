@@ -1,0 +1,170 @@
+<div *ngIf="!isSuccessForm" id="form" class="content d-grid justify-content-center my-5">
+  <h2 id="order-text" class="d-grid justify-content-center m-5">Сделать заказ</h2>
+  <form id="order"
+        class="order-form row g-3 needs-validation"
+        novalidate
+        [formGroup]="checkoutForm"
+        (ngSubmit)="createOrder()"
+        >
+    <div class="col-md-4">
+      <label for="name-input" class="form-label">Имя</label>
+      <input type="text" class="form-control" id="name-input" value=""
+      formControlName="name">
+      <div *ngIf="checkoutForm.get('name')?.invalid
+               && (checkoutForm.get('name')?.touched || checkoutForm.get('name')?.dirty)
+               ">
+
+        <div class="invalid-feedback" *ngIf="checkoutForm.get('name')?.errors?.['pattern']">
+          Username must contain only letters.
+        </div>
+        <div class="invalid-feedback" *ngIf="checkoutForm.get('name')?.errors?.['required']">
+          Your username is required.
+        </div>
+
+      </div>
+
+
+    </div>
+    <div class="col-md-4">
+      <label for="surname-input" class="form-label">Фамилия</label>
+      <input type="text" class="form-control" id="surname-input" value=""
+             formControlName="last_name">
+      <div *ngIf="checkoutForm.get('last_name')?.invalid
+               && (checkoutForm.get('last_name')?.touched || checkoutForm.get('last_name')?.dirty)">
+
+        <small class="invalid-feedback" *ngIf="checkoutForm.get('last_name')?.errors?.['pattern']">
+          Username must contain only letters.
+        </small>
+        <small class="invalid-feedback" *ngIf="checkoutForm.get('last_name')?.errors?.['required']">
+          Your username is required.
+        </small>
+
+      </div>
+    </div>
+    <div class="col-md-4">
+      <label for="phone-input" class="form-label">Телефон</label>
+      <input type="text" class="form-control" id="phone-input"
+             aria-describedby="inputGroupPrepend"
+      formControlName="phone">
+
+      <div *ngIf="checkoutForm.get('phone')?.invalid
+               && (checkoutForm.get('phone')?.touched || checkoutForm.get('phone')?.dirty)">
+
+        <div class="invalid-feedback" *ngIf="checkoutForm.get('phone')?.errors?.['pattern']">
+          Phone must contain only number.
+        </div>
+        <div class="invalid-feedback" *ngIf="checkoutForm.get('phone')?.errors?.['required']">
+          Your phone is required.
+        </div>
+
+      </div>
+
+    </div>
+    <div class="col-md-6">
+      <label for="country-input" class="form-label">Страна</label>
+      <input type="text" class="form-control" id="country-input"
+             formControlName="country">
+
+      <div *ngIf="checkoutForm.get('country')?.invalid
+               && (checkoutForm.get('country')?.touched || checkoutForm.get('country')?.dirty)">
+
+        <div class="invalid-feedback" *ngIf="checkoutForm.get('country')?.errors?.['pattern']">
+          Country must contain only letter.
+        </div>
+        <div class="invalid-feedback" *ngIf="checkoutForm.get('country')?.errors?.['required']">
+          Your country is required.
+        </div>
+
+      </div>
+
+    </div>
+    <div class="col-md-6">
+      <label for="index-input" class="form-label">Индекс</label>
+      <input type="number" class="form-control" id="index-input"
+             formControlName="zip">
+
+      <div *ngIf="checkoutForm.get('zip')?.invalid
+               && (checkoutForm.get('zip')?.touched || checkoutForm.get('zip')?.dirty)">
+
+        <div class="invalid-feedback" *ngIf="checkoutForm.get('zip')?.errors?.['pattern']">
+          Zip must contain only 6 number.
+        </div>
+        <div class="invalid-feedback" *ngIf="checkoutForm.get('zip')?.errors?.['required']">
+          Your zip is required.
+        </div>
+
+      </div>
+
+    </div>
+    <div class="col-12">
+      <div class="col-md-12">
+        <label for="address-input" class="form-label">Продукт</label>
+        <input type="text" class="form-control" id="product-input"
+               formControlName="product">
+
+        <div *ngIf="checkoutForm.get('product')?.invalid
+               && (checkoutForm.get('product')?.touched || checkoutForm.get('product')?.dirty)">
+
+          <div class="invalid-feedback" *ngIf="checkoutForm.get('product')?.errors?.['pattern']">
+            Product must contain only letter.
+          </div>
+          <div class="invalid-feedback" *ngIf="checkoutForm.get('product')?.errors?.['required']">
+            Your product is required.
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="col-md-12">
+        <label for="address-input" class="form-label">Адрес</label>
+        <input type="text" class="form-control" id="address-input"
+               formControlName="address">
+
+        <div *ngIf="checkoutForm.get('address')?.invalid
+               && (checkoutForm.get('address')?.touched || checkoutForm.get('address')?.dirty)">
+
+          <div class="invalid-feedback" *ngIf="checkoutForm.get('address')?.errors?.['pattern']">
+            Product must contain only letter.
+          </div>
+          <div class="invalid-feedback" *ngIf="checkoutForm.get('address')?.errors?.['required']">
+            Your product is required.
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="col-md-12">
+        <label for="address-input" class="form-label">Комментарий</label>
+        <input type="text" class="form-control" id="comment-input"
+               formControlName="comment">
+
+        <div *ngIf="checkoutForm.get('comment')?.invalid
+               && (checkoutForm.get('comment')?.touched || checkoutForm.get('comment')?.dirty)">
+
+          <div class="invalid-feedback" *ngIf="checkoutForm.get('comment')?.errors?.['pattern']">
+            Product must contain only letter.
+          </div>
+          <div class="invalid-feedback" *ngIf="checkoutForm.get('comment')?.errors?.['required']">
+            Your product is required.
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <div class="col-12">
+      <button id="create-order" class="btn btn-primary hvr-bounce-in"
+        [disabled]="checkoutForm.invalid || checkoutForm.disabled">Отправить</button>
+      <div *ngIf="dangerTextForm" class="d-inline-block mx-3">
+        <p class="text-danger">Произошла ошибка. Попробуйте еще раз</p>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="vh-100 d-flex justify-content-center align-items-center" *ngIf="isSuccessForm">
+  <h1 class="text-center">Спасибо за заказ!</h1>
+</div>
